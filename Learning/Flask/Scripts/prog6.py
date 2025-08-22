@@ -23,7 +23,7 @@ from flask import Flask, jsonify, request
 import sqlite3 as s
 
 app = Flask(__name__)
-con = s.connect("dummy.db")
+con = s.connect("dummy1.db")
 cur = con.cursor()
 
 try:
