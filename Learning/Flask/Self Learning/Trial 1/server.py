@@ -13,13 +13,17 @@ def home():
     res = db_cur.execute("SELECT * from POSTS")
     return render_template("index.html", posts=res.fetchall())
 
-@app.route("/about", methods=["GET"])
-def about():
-    return render_template("about.html")
-
 @app.route("/post", methods=["GET"])
 def add_post():
     return render_template('add_post.html')
+
+@app.route("/register", methods=["GET"])
+def register():
+    return render_template("register.html")
+
+@app.route("/login", methods=["GET"])
+def login():
+    return render_template("login.html")
     
 
 if __name__ == "__main__":
