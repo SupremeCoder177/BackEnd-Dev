@@ -4,8 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Post</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='add.css')}}">
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Add Your Post Here.</h1>
+        <textarea id="post-body" placeholder="Write your post here..." name="post" row="15" cols="50"></textarea>
+        <h2>Attach an image here.</h2>
+        <input type="file" accept=".jpeg,.jpg,.png" id="fileInput">
+        <br>
+        <img id="preview" style="max-width: 300px; max-height: 200px; object-fit: contain; display: none; margin-top : 1rem">
+    </div>
+
+    <script>
+        const fileInput = document.getElementById("fileInput");
+        const preview = document.getElementById("preview");
+
+        fileInput.addEventListener("change", () => {
+            const file = fileInput.files[0];
+
+            if(!file) return;
+
+            const imageURL = URL.createObjectURL(file);
+            preview.src = imageURL;
+            preview.style.display = "block";
+        })
+
+    </script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container{
+    width: 500px;
+    height: 700px;
+    border: solid 1px black;
+    border-radius: 1rem;
+    box-shadow: 0 0.8rem 0.8rem -0.25rem black;
+    position: relative;
+    justify-self: center;
+    top: 10vh;
+    padding: 1rem;
+}
+
+.container h1, h2{
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.container #post-body{
+    width: 90%;
+    height: 200px;
+    font-size: 1.5rem;
+    text-wrap-mode: wrap;
+}

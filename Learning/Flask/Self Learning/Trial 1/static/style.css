@@ -80,6 +80,9 @@ body {
     top: 85vh;
     left: 93vw;
     transition: all 100ms linear;
+    text-align: center;
+    text-decoration: none;
+    align-content: center;
 }
 
 #add-post:hover{
