@@ -8,7 +8,23 @@
 </head>
 <body>
     <div class="container">
-
+        <div class="header">
+            <h2>Select An Image To Display</h2>
+            <h2>Then Write Your Blog Here ↓</h2>
+        </div>
+        <div class="main">
+            <div class="image">    
+                <input type="file" accept="image/*" id="fileInput" hidden>
+                <label for="fileInput" class="custom-file-input">Select An Image</label>
+                <img id="preview">
+            </div>
+            <textarea class="blog-content" id="text" placeholder="Enter Your Thoughts, Fire Away...." autocapitalize="on" autocorrect="on"></textarea>
+        </div>
+        <div class="action-btn-container">
+            <label class="back function-btns" id="goBack"><a href="home">Back</a></label>
+            <button class="final function-btns" id="post">Post</button>
+        </div>
     </div>
+    <script src="{{ url_for('static', filename='post_blog.js') }}"></script>
 </body>
 </html>

@@ -3,3 +3,6 @@ __pycache__/
 *.exe
 *.dll
 *.db 
+*.jpeg
+*.jpg
+*.png
