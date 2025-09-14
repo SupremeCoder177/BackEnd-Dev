@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 import sqlite3 as sql
 from typing import List
 
@@ -67,8 +67,17 @@ def sign_up():
     return render_template('sign_up.html')
 
 @app.route("/login", methods=["GET"])
-def login():
+def login_page():
     return render_template('login.html')
+
+@app.route("/login-user", methods=["POST"])
+def login():
+    data = request.get_json()
+    print(data)
+    for arg in request.args:
+        print(arg)
+
+    return {"success" : False, "message" : "user did not login successfully"}
 
 if __name__ == "__main__":
     app.run(host="localhost", port=5000)
