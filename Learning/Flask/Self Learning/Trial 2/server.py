@@ -1,16 +1,25 @@
 from flask import Flask, render_template, url_for
 import sqlite3 as sql
+from typing import List
 
 app = Flask(__name__)
 
-# BLOGS TABLE CONTENT
-# (i) USERNAME
-# (ii) IMAGEPATH
-# (iii) EMAIL
-# (iv) CONTENT
-# (v) CREATED
-# (vi) LIKES
-# (vii) COMMENTS
+"""
+BLOGS TABLE CONTENT
+(i) BLOG_ID
+(ii) USERNAME
+(iii) IMAGEPATH
+(iv) EMAIL
+(v) CONTENT
+(vi) LIKES
+"""
+"""
+USERS TABLE
+(i) USER_ID
+(ii) USERNAME
+(iii) EMAIL
+(iv) PASSWORD
+"""
 
 
 def run_and_commit_command(command):
@@ -25,16 +34,41 @@ def run_and_commit_command(command):
         pass
     conn.close()
     return data
-    
+
+
+def create_table(name : str, params : List[str]):
+    conn = sql.connect("dummy.db")
+    cur = conn.cursor()
+
+    temp = " ,".join(params)
+    command = f'CREATE TABLE {name} ({temp})'
+
+    try:
+        cur.execute(command)
+    except sql.DatabaseError:
+        print("Something went wrong while table creation")
+    finally:
+        conn.commit()
+        conn.close()
+
+
 
 @app.route("/", methods=["GET"])
 @app.route("/home", methods=["GET"])
 def home():
-    return render_template("index.html")
+    return render_template("index.html", blogs=run_and_commit_command("SELECT * FROM BLOGS"))
 
 @app.route("/post", methods=["GET"])
 def post_blog():
     return render_template('post.html')
+
+@app.route("/sign-up", methods=["GET"])
+def sign_up():
+    return render_template('sign_up.html')
+
+@app.route("/login", methods=["GET"])
+def login():
+    return render_template('login.html')
 
 if __name__ == "__main__":
     app.run(host="localhost", port=5000)

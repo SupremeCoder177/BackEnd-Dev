@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+    <div class="bg-img-container">
+        <img src="{{ url_for('static', filename='site/login_img.jpg') }}">
+    </div>
+    <div class="container">
+        <img src="{{ url_for('static', filename='site/login_img.jpg') }}" class="bg-img">
+        <h1 class="heading">Login</h1>
+        <h2 class="heading">Welcome Back !</h2>
+        <br>
+
+        <input type="text" id="username" placeholder="Username/Email" class="user-input">
+        <input type="password" id="user-password" placeholder="Enter password here" class="user-input">
+        <button id="submit">Submit</button>
+
+        <h1 class="heading welcome" id="first">We Missed You !!</h1>
+        <h2 class="heading welcome" id="second">Post about what you did while you were away.</h2>
+    </div>
+</body>
+</html>

@@ -9,16 +9,28 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1 class="title-text heading">Welcome To Blogs Land</h1>
-            <h2 style="font-size: 1rem; text-align: center;">Read or Post Your Own Blogs Freely</h2>
+            <div class="headings">
+                <h1 class="title-text heading">Welcome To Blogs Land</h1>
+                <h2 style="font-size: 1rem; text-align: center;">Read or Post Your Own Blogs Freely</h2>
+            </div>
+            <div class="user-login-sign-up">
+                <label class="button-1" id="login"><a href="/login">Login</a></label>
+                <label class="button-1" id="sign-up"><a href="/sign-up">Sign Up</a></label>
+            </div>
         </div>
         <div class="blogs">
-            
+          {% for blog in blogs %}
+            <div class="card">
+                <img src="{{ url_for('static/uploads', filename=blog.imagepath)}}" class="blog-img">
+                <p class="blog-text">{{ blog.content }}</p>
+            </div>
+          {% endfor %}
         </div>
         <div class="functions">
             <button class="add-post"><a href="post">+</a></button>
             <button class="edit-post">E</button>
         </div>
     </div>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
 </body>
 </html>
