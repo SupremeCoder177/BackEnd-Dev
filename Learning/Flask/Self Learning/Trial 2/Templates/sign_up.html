@@ -4,8 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign-Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sign_up.css') }}">
 </head>
 <body>
-    
+    <div class="bg-box">
+            <img src="{{ url_for('static', filename='site/sign-up-bg.jpg') }}" alt="bg for page" class="bg">
+        </div>
+    <div class="container">
+        <img class="box-img" src="{{ url_for('static', filename='site/sign-up-bg.jpg') }}" alt="bg for main sign up box">
+
+        <h1 class="title">Sign Up Now !!</h1>
+
+        <div class="input-box">
+            <input type="text" id="username" placeholder="Email/Username">
+            <input type="password" id="password">
+        </div>
+
+    </div>
 </body>
 </html>
